@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f5f8fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(20, 57, 103, 0.06), transparent 28rem),
+    #f7f9fc;
+  color: #102033;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.xeriff-page {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  background: #050505;
+}
+
+.xeriff-page p,
+.xeriff-page a,
+.xeriff-page li,
+.xeriff-page summary,
+.xeriff-page small {
+  font-family: "Montserrat", sans-serif;
+}
+
+.xeriff-page h1,
+.xeriff-page h2,
+.xeriff-page h3 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.xeriff-page h1 {
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.xeriff-page h2 {
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.xeriff-page h3 {
+  font-weight: 600;
+  line-height: 1;
+}
+
+.xeriff-hero-shell {
+  width: min(100% - 32px, 1094px);
+  margin-inline: auto;
+}
+
+.xeriff-nav-shell {
+  width: min(100% - 136px, 1216px);
+  margin-inline: auto;
+}
+
+.xeriff-logo {
+  display: inline-flex;
+  width: 146px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #c7983c;
+  background: #050505;
+}
+
+.xeriff-nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.72);
+}
+
+.xeriff-nav-link:hover,
+.xeriff-nav-link:focus-visible {
+  color: #e1bf77;
+}
+
+.xeriff-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Montserrat", sans-serif;
+  color: #c7983c;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.xeriff-heading {
+  max-width: 860px;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2.05rem, 3.2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+}
+
+.xeriff-section-light .xeriff-heading {
+  color: #050505;
+  text-shadow: none;
+}
+
+.xeriff-hero-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2.7rem, 5.5vw, 5.2rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.xeriff-gold-gradient {
+  background: linear-gradient(90deg, #c7983c 0%, #e1bf77 48%, #c7983c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.xeriff-button,
+.xeriff-outline,
+.xeriff-light-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #c7983c;
+  padding: 0 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.xeriff-page .xeriff-button,
+.xeriff-page .xeriff-light-button {
+  min-width: 168px;
+}
+
+.xeriff-button {
+  background: #c7983c;
+  color: #050505;
+}
+
+.xeriff-outline {
+  background: transparent;
+  color: #e1bf77;
+}
+
+.xeriff-light-button {
+  background: transparent;
+  border-color: #050505;
+  color: #050505;
+}
+
+.xeriff-button:hover,
+.xeriff-outline:hover,
+.xeriff-light-button:hover {
+  transform: translateY(-2px);
+}
+
+.xeriff-button:active,
+.xeriff-outline:active,
+.xeriff-light-button:active {
+  transform: scale(0.98);
+}
+
+.xeriff-outline:hover {
+  background: #c7983c;
+  color: #050505;
+}
+
+.xeriff-icon-button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e1bf77;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.xeriff-icon-button:hover {
+  background: rgba(199, 152, 60, 0.12);
+  transform: translateY(-1px);
+}
+
+.xeriff-chip {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 10px 12px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.xeriff-chip::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 10px;
+  vertical-align: 2px;
+  background: #e1bf77;
+}
+
+.xeriff-marquee {
+  overflow: hidden;
+  background: #c7983c;
+  color: #050505;
+  white-space: nowrap;
+}
+
+.xeriff-marquee div {
+  display: inline-flex;
+  width: max-content;
+  animation: xeriff-marquee 68s linear infinite;
+}
+
+.xeriff-marquee span {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 13px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.xeriff-marquee b {
+  color: #050505;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.xeriff-hero-frame {
+  animation: xeriff-hero-in 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.xeriff-reveal {
+  animation: xeriff-fade-up 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 24%;
+}
+
+.xeriff-stagger {
+  animation: xeriff-fade-up 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.xeriff-stagger:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.xeriff-stagger:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.xeriff-stagger:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.xeriff-stagger:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+.xeriff-stagger:nth-child(6) {
+  animation-delay: 400ms;
+}
+
+@keyframes xeriff-hero-in {
+  from {
+    opacity: 0;
+    transform: scale(1.012);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes xeriff-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes xeriff-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::selection {
+  background: #d9ecff;
+  color: #0c1d3b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .xeriff-marquee div {
+    animation: none;
+  }
+
+  .xeriff-hero-frame,
+  .xeriff-reveal,
+  .xeriff-stagger {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

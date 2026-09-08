@@ -1,0 +1,17 @@
+{
+  "name": "Ótica Xeriff",
+  "short_name": "Ótica Xeriff",
+  "description": "Óculos de grau, óculos de sol e armações em Salvador.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/otica-xeriff/logo-xeriff-transparent.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
