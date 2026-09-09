@@ -225,16 +225,23 @@ export function XeriffHome() {
               target="_blank"
               rel="noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-3 flex min-h-11 items-center justify-center rounded-[5px] border border-[#C7983C] px-4 text-[10px] font-black uppercase tracking-[0.16em] text-[#E1BF77] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C]"
+              className="mt-3 flex min-h-11 items-center justify-center rounded-[5px] bg-[#C7983C] px-4 text-[10px] font-black uppercase tracking-[0.16em] text-[#050505] transition hover:bg-[#E1BF77] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C]"
             >
               Falar com a Xeriff
+            </a>
+            <a
+              href="#endereco"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-2 flex min-h-11 items-center justify-center rounded-[5px] border border-[#C7983C]/70 px-4 text-[10px] font-black uppercase tracking-[0.16em] text-[#E1BF77] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C]"
+            >
+              Como chegar
             </a>
           </div>
         </nav>
       </header>
 
       <section className="xeriff-reveal bg-[#F7F4EE] pt-14 lg:pt-16" aria-label="Campanhas e promoções da Ótica Xeriff">
-        <div className="relative mx-auto aspect-[1920/740] w-full overflow-hidden bg-[#F7F4EE]">
+        <div className="relative mx-auto h-[240px] w-full overflow-hidden bg-[#F7F4EE] sm:h-[320px] md:aspect-[1920/740] md:h-auto">
           {campaignSlides.map((slide, index) => (
             <Image
               key={slide.image}
@@ -243,7 +250,7 @@ export function XeriffHome() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className={`object-cover transition duration-700 ease-out ${slide.imageClassName} ${
+              className={`object-contain transition duration-500 ease-out md:object-cover ${slide.imageClassName} ${
                 index === campaignIndex ? slide.activeClassName : slide.inactiveClassName
               }`}
             />
@@ -252,7 +259,7 @@ export function XeriffHome() {
           <button
             type="button"
             onClick={() => showCampaign("previous")}
-            className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[#C7983C]/70 bg-[#050505]/88 text-[#E1BF77] shadow-[0_12px_28px_rgba(5,5,5,.24)] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:left-6 md:h-12 md:w-12"
+            className="absolute left-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-[#C7983C]/70 bg-[#050505]/88 text-[#E1BF77] shadow-[0_12px_28px_rgba(5,5,5,.24)] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:left-6 md:h-12 md:w-12"
             aria-label="Ver campanha anterior"
           >
             <ArrowLeft size={22} strokeWidth={2.4} aria-hidden />
@@ -260,7 +267,7 @@ export function XeriffHome() {
           <button
             type="button"
             onClick={() => showCampaign("next")}
-            className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[#C7983C]/70 bg-[#050505]/88 text-[#E1BF77] shadow-[0_12px_28px_rgba(5,5,5,.24)] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:right-6 md:h-12 md:w-12"
+            className="absolute right-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-[#C7983C]/70 bg-[#050505]/88 text-[#E1BF77] shadow-[0_12px_28px_rgba(5,5,5,.24)] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:right-6 md:h-12 md:w-12"
             aria-label="Ver próxima campanha"
           >
             <ArrowRight size={22} strokeWidth={2.4} aria-hidden />
@@ -272,11 +279,16 @@ export function XeriffHome() {
                 key={slide.image}
                 type="button"
                 onClick={() => setCampaignIndex(index)}
-                className={`h-2.5 rounded-full transition-all ${
-                  index === campaignIndex ? "w-8 bg-[#C7983C]" : "w-2.5 bg-[#050505]/28 hover:bg-[#C7983C]/70"
-                }`}
+                className="group grid h-11 w-11 place-items-center rounded-full transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C7983C]"
                 aria-label={`Ver campanha ${index + 1}`}
-              />
+              >
+                <span
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === campaignIndex ? "w-8 bg-[#C7983C]" : "w-2.5 bg-[#050505]/28 group-hover:bg-[#C7983C]/70"
+                }`}
+                  aria-hidden
+                />
+              </button>
             ))}
           </div>
         </div>
@@ -311,14 +323,14 @@ export function XeriffHome() {
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#050505] to-transparent" />
 
-        <div className="xeriff-hero-shell relative z-10 grid min-h-[calc(100svh-64px)] w-full items-center px-4 py-16 sm:px-0 lg:grid-cols-[1fr_.86fr]">
+        <div className="xeriff-hero-shell relative z-10 grid min-h-[calc(100svh-56px)] w-full items-center px-4 pb-24 pt-20 sm:px-0 lg:min-h-[calc(100svh-64px)] lg:grid-cols-[1fr_.86fr] lg:py-16">
           <div className="max-w-[820px]">
             <p className="xeriff-eyebrow">Ótica Xeriff • Salvador</p>
-            <h1 className="xeriff-hero-title mt-5">
+            <h1 className="xeriff-hero-title mt-4 lg:mt-5">
               <span className="block md:whitespace-nowrap">Seu olhar também faz</span>
               <span className="block md:whitespace-nowrap">parte do <span className="xeriff-gold-gradient">seu estilo.</span></span>
             </h1>
-            <p className="mt-6 max-w-[560px] text-[17px] font-semibold leading-7 text-white/80 md:text-[19px]">
+            <p className="mt-5 max-w-[560px] text-[17px] font-semibold leading-8 text-white/85 md:mt-6 md:text-[19px]">
               Óculos de grau, óculos de sol e armações selecionadas para quem busca qualidade, conforto e personalidade.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -380,7 +392,7 @@ export function XeriffHome() {
             <div>
               <p className="xeriff-eyebrow">Catálogo</p>
               <h2 id="catalog-title" className="xeriff-heading mt-3">Uma seleção para <span className="xeriff-gold-gradient">cada olhar.</span></h2>
-              <p className="mt-4 max-w-2xl text-white/70">Deslize para conhecer estilos disponíveis na loja. Disponibilidade e valores são confirmados no atendimento.</p>
+              <p className="mt-4 max-w-2xl text-white/75">Deslize para conhecer estilos disponíveis na loja. Disponibilidade e valores são confirmados no atendimento.</p>
             </div>
             <div className="hidden gap-2 md:flex">
               <button className="xeriff-icon-button" onClick={() => scrollCatalog("left")} aria-label="Ver itens anteriores"><ArrowLeft size={18} /></button>
@@ -396,7 +408,7 @@ export function XeriffHome() {
                 <div className="min-h-[150px] border-t border-white/5 p-5">
                   <p className="xeriff-eyebrow">{item.category}</p>
                   <h3 className="mt-3 text-[24px] font-black uppercase leading-none">{item.name}</h3>
-                  <a className="xeriff-outline mt-5 h-[38px] min-h-0 w-full px-2 text-[10px]" href={whatsappLink(`Olá! Vi ${item.name} no site da Ótica Xeriff e gostaria de saber disponibilidade e valor.`)} target="_blank" rel="noreferrer">
+                  <a className="xeriff-outline mt-5 h-11 min-h-0 w-full px-2 text-[10px]" href={whatsappLink(`Olá! Vi ${item.name} no site da Ótica Xeriff e gostaria de saber disponibilidade e valor.`)} target="_blank" rel="noreferrer">
                     Quero saber mais
                   </a>
                 </div>
@@ -415,7 +427,7 @@ export function XeriffHome() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-[1fr_.9fr] md:items-center md:px-8">
           <div className="max-w-[520px]">
             <p className="xeriff-eyebrow">Estilo</p>
-            <h2 className="mt-3 font-display text-[clamp(2.05rem,3.2vw,3.25rem)] font-bold uppercase leading-[0.95] text-[#050505]">
+            <h2 className="mt-3 font-display text-[2.15rem] font-bold uppercase leading-[0.98] text-[#050505] md:text-[3.25rem] md:leading-[0.95]">
               Um acessório que muda o <span className="xeriff-gold-gradient">olhar inteiro.</span>
             </h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#2A2A2A]/80">
@@ -451,7 +463,7 @@ export function XeriffHome() {
             <p className="xeriff-eyebrow">Atendimento</p>
             <h2 className="xeriff-heading mt-3">Atendimento que <span className="xeriff-gold-gradient">impressiona.</span></h2>
             <h3 className="mt-4 text-2xl font-black uppercase leading-tight text-white">Escolher uma armação pode ser mais fácil <span className="xeriff-gold-gradient">com orientação.</span></h3>
-            <p className="mt-5 text-lg leading-8 text-white/70">Nossa equipe ajuda você a encontrar opções que combinem com seu estilo, preferência e necessidades.</p>
+            <p className="mt-5 text-lg leading-8 text-white/75">Nossa equipe ajuda você a encontrar opções que combinem com seu estilo, preferência e necessidades.</p>
             <a className="xeriff-button mt-8" href={whatsappLink()} target="_blank" rel="noreferrer">
               Falar no WhatsApp <ChevronRight size={16} aria-hidden />
             </a>
@@ -467,7 +479,7 @@ export function XeriffHome() {
             <div key={title} className="xeriff-stagger border-b border-white/12 p-7 md:border-b-0 md:border-r md:last:border-r-0">
               <Icon className="text-[#C7983C]" size={25} aria-hidden />
               <h3 className="mt-6 text-xl font-black uppercase">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/70">{text}</p>
+              <p className="mt-3 text-sm leading-6 text-white/75">{text}</p>
             </div>
           ))}
         </div>
@@ -504,7 +516,7 @@ export function XeriffHome() {
             <p>2º piso</p>
             <p>Campo da Pólvora, Salvador - BA</p>
           </div>
-          <p className="mt-5 max-w-xl leading-7 text-white/65">Entre a Faculdade Santa Casa e o Bradesco. Próximo ao Metrô Campo da Pólvora.</p>
+          <p className="mt-5 max-w-xl leading-7 text-white/75">Entre a Faculdade Santa Casa e o Bradesco. Próximo ao Metrô Campo da Pólvora.</p>
           <a className="xeriff-button mt-8" href="https://www.google.com/maps/search/?api=1&query=Av.%20Joana%20Ang%C3%A9lica%2C%20808%20Comercial%20Arcada%20Salvador%20BA" target="_blank" rel="noreferrer">
             <Navigation size={18} aria-hidden /> Como chegar
           </a>
@@ -524,10 +536,10 @@ export function XeriffHome() {
               <h3 className="font-display text-2xl font-bold uppercase leading-none text-white md:text-[34px]">
                 Ótica <span className="xeriff-gold-gradient">Xeriff</span>
               </h3>
-              <p className="text-sm leading-6 text-white/68">
+              <p className="text-sm leading-6 text-white/75">
                 Av. Joana Angélica, 808, Comercial Arcada, 2º piso, Campo da Pólvora.
               </p>
-              <div className="grid gap-3 text-sm font-semibold text-white/78">
+              <div className="grid gap-3 text-sm font-semibold text-white/82">
                 <span className="border border-white/10 bg-white/[0.03] px-4 py-3">(71) 99113-8625</span>
                 <span className="border border-white/10 bg-white/[0.03] px-4 py-3">Próximo ao Metrô Campo da Pólvora</span>
                 <span className="border border-white/10 bg-white/[0.03] px-4 py-3">Salvador - BA</span>
@@ -611,7 +623,7 @@ export function XeriffHome() {
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="xeriff-eyebrow justify-center">Ótica Xeriff</p>
           <h2 className="mt-4 text-[2.15rem] font-black uppercase leading-none md:text-[3.25rem]">O seu <span className="xeriff-gold-gradient">próximo olhar</span> começa aqui.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/75">Conheça as armações da Ótica Xeriff e encontre um modelo que combine com você.</p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/82">Conheça as armações da Ótica Xeriff e encontre um modelo que combine com você.</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a className="xeriff-button" href={whatsappLink()} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden /> Falar no WhatsApp</a>
             <a className="xeriff-outline" href="#endereco">Como chegar</a>

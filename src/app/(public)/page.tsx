@@ -3,19 +3,17 @@ import { XeriffHome } from "@/components/public/xeriff-home";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Ótica Xeriff | Óculos de Grau, Sol e Armações em Salvador"
+    absolute: "Ótica Xeriff | Visão que impressiona"
   },
-  description:
-    "Ótica Xeriff no Campo da Pólvora, Salvador. Óculos de grau, óculos de sol, armações, acessórios e atendimento pelo WhatsApp.",
+  description: "Óculos de grau, óculos de sol, armações e atendimento especializado em Salvador.",
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Ótica Xeriff | A visão que impressiona",
-    description:
-      "Armações e óculos selecionados para quem busca qualidade, conforto e personalidade em Salvador.",
+    title: "Ótica Xeriff",
+    description: "A visão que impressiona em Salvador.",
     type: "website",
-    images: ["/otica-xeriff/hero-casal.webp"]
+    images: ["/otica-xeriff/campanha-novo-endereco.png"]
   }
 };
 

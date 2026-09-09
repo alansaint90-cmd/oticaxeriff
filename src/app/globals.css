@@ -26,7 +26,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 a {
@@ -37,7 +37,7 @@ a {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   background: #050505;
 }
 
@@ -54,7 +54,7 @@ a {
 .xeriff-page h3 {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .xeriff-page h1 {
@@ -123,10 +123,10 @@ a {
   max-width: 860px;
   color: #fff;
   font-family: "Oswald", sans-serif;
-  font-size: clamp(2.05rem, 3.2vw, 3.25rem);
+  font-size: 2.15rem;
   font-weight: 700;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   text-transform: uppercase;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
 }
@@ -138,10 +138,10 @@ a {
 
 .xeriff-hero-title {
   font-family: "Oswald", sans-serif;
-  font-size: clamp(2.7rem, 5.5vw, 5.2rem);
+  font-size: 2.85rem;
   font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -321,10 +321,36 @@ a {
 }
 
 .xeriff-slide-in-right {
+  --xeriff-slide-distance: 60vw;
   animation: xeriff-slide-in-right 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-timeline: view();
   animation-range: entry 0% cover 36%;
   will-change: transform, opacity;
+}
+
+@media (min-width: 768px) {
+  .xeriff-heading {
+    font-size: 3rem;
+  }
+
+  .xeriff-hero-title {
+    font-size: 4.35rem;
+    line-height: 0.95;
+  }
+}
+
+@media (min-width: 1024px) {
+  .xeriff-heading {
+    font-size: 3.25rem;
+  }
+
+  .xeriff-hero-title {
+    font-size: 5.2rem;
+  }
+
+  .xeriff-slide-in-right {
+    --xeriff-slide-distance: 110vw;
+  }
 }
 
 @keyframes xeriff-hero-in {
@@ -361,7 +387,7 @@ a {
 @keyframes xeriff-slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(110vw);
+    transform: translateX(var(--xeriff-slide-distance));
   }
   to {
     opacity: 1;
