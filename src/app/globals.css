@@ -78,7 +78,7 @@ a {
 }
 
 .xeriff-nav-shell {
-  width: min(100% - 136px, 1216px);
+  width: min(100% - 24px, 1216px);
   margin-inline: auto;
 }
 
@@ -261,9 +261,9 @@ a {
 .xeriff-marquee span {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
-  padding: 13px 24px;
-  font-size: 13px;
+  gap: 22px;
+  padding: 9px 22px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -277,6 +277,17 @@ a {
 
 .xeriff-hero-frame {
   animation: xeriff-hero-in 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 1024px) {
+  .xeriff-nav-shell {
+    width: min(100% - 136px, 1216px);
+  }
+
+  .xeriff-marquee span {
+    padding-block: 10px;
+    font-size: 13px;
+  }
 }
 
 .xeriff-reveal {

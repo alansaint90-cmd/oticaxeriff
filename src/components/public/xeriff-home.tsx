@@ -18,7 +18,8 @@ import {
   Sparkles,
   Store,
   Sun,
-  Tags
+  Tags,
+  X
 } from "lucide-react";
 
 const phone = "5571991138625";
@@ -66,22 +67,22 @@ const campaignSlides = [
     image: "/otica-xeriff/campanha-armacao-gratis.png",
     alt: "Campanha Ótica Xeriff: armação grátis na compra das suas lentes",
     imageClassName: "object-center",
-    activeClassName: "scale-100 opacity-100",
-    inactiveClassName: "scale-[1.01] opacity-0"
+    activeClassName: "opacity-100",
+    inactiveClassName: "opacity-0"
   },
   {
     image: "/otica-xeriff/campanha-arcada-estilo.png",
     alt: "Campanha Ótica Xeriff: arcada com estilo e melhores marcas",
-    imageClassName: "origin-top object-top",
-    activeClassName: "scale-[1.3] opacity-100",
-    inactiveClassName: "scale-[1.31] opacity-0"
+    imageClassName: "object-center",
+    activeClassName: "opacity-100",
+    inactiveClassName: "opacity-0"
   },
   {
     image: "/otica-xeriff/campanha-novo-endereco.png",
     alt: "Campanha Ótica Xeriff: estamos no novo endereço no Comercial Arcada",
     imageClassName: "object-center",
-    activeClassName: "scale-100 opacity-100",
-    inactiveClassName: "scale-[1.01] opacity-0"
+    activeClassName: "opacity-100",
+    inactiveClassName: "opacity-0"
   }
 ];
 
@@ -124,6 +125,7 @@ const faqs = [
 export function XeriffHome() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [campaignIndex, setCampaignIndex] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollCatalog = (direction: "left" | "right") => {
     carouselRef.current?.scrollBy({ left: direction === "left" ? -360 : 360, behavior: "smooth" });
@@ -168,8 +170,13 @@ export function XeriffHome() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
 
       <header className="fixed inset-x-0 top-0 z-[70] border-b border-[#C7983C]/25 bg-[#050505]/95 shadow-[0_14px_40px_rgba(0,0,0,.42)] backdrop-blur-md">
-        <div className="xeriff-nav-shell flex h-[64px] items-center justify-between px-4 sm:px-0">
-          <a href="#inicio" className="inline-flex h-[42px] w-[118px] items-center justify-center overflow-hidden lg:h-[56px] lg:w-[168px]" aria-label="Ótica Xeriff - início">
+        <div className="xeriff-nav-shell flex h-[56px] items-center justify-between px-0 lg:h-[64px]">
+          <a
+            href="#inicio"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="inline-flex h-[32px] w-[92px] items-center justify-center overflow-hidden lg:h-[56px] lg:w-[168px]"
+            aria-label="Ótica Xeriff - início"
+          >
             <Image
               src="/otica-xeriff/logo-xeriff-header-transparent.png"
               alt="Ótica Xeriff - A visão que impressiona"
@@ -191,14 +198,50 @@ export function XeriffHome() {
               Falar com a Xeriff
             </a>
           </div>
-          <button className="grid h-10 w-10 place-items-center text-[#E1BF77]/85 transition hover:text-[#E1BF77] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] lg:hidden" aria-label="Abrir menu">
-            <Menu size={20} strokeWidth={1.8} aria-hidden />
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+            className="grid h-11 w-11 place-items-center justify-self-end border border-[#C7983C]/25 text-[#E1BF77]/90 transition hover:border-[#C7983C]/70 hover:text-[#E1BF77] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] lg:hidden"
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-controls="xeriff-mobile-menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={19} strokeWidth={1.8} aria-hidden /> : <Menu size={21} strokeWidth={1.8} aria-hidden />}
           </button>
         </div>
+        <nav
+          id="xeriff-mobile-menu"
+          className={`overflow-hidden border-t border-[#C7983C]/15 bg-[#050505]/98 transition-[max-height,opacity] duration-300 ease-out lg:hidden ${
+            isMobileMenuOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+          aria-label="Menu mobile"
+        >
+          <div className="xeriff-nav-shell py-2">
+            {navItems.map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block border-b border-white/10 py-3 text-[11px] font-black uppercase tracking-[0.08em] text-white transition hover:text-[#E1BF77] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C]"
+              >
+                {label}
+              </a>
+            ))}
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-3 flex min-h-11 items-center justify-center rounded-[5px] border border-[#C7983C] px-4 text-[10px] font-black uppercase tracking-[0.16em] text-[#E1BF77] transition hover:bg-[#C7983C] hover:text-[#050505] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C]"
+            >
+              Falar com a Xeriff
+            </a>
+          </div>
+        </nav>
       </header>
 
-      <section className="xeriff-reveal bg-[#F7F4EE] pt-16" aria-label="Campanhas e promoções da Ótica Xeriff">
-        <div className="relative mx-auto aspect-[1900/830] w-full overflow-hidden">
+      <section className="xeriff-reveal bg-[#F7F4EE] pt-14 lg:pt-16" aria-label="Campanhas e promoções da Ótica Xeriff">
+        <div className="relative mx-auto h-[300px] w-full overflow-hidden bg-[#F7F4EE] sm:h-[390px] md:aspect-[1900/830] md:h-auto">
           {campaignSlides.map((slide, index) => (
             <Image
               key={slide.image}
@@ -207,7 +250,7 @@ export function XeriffHome() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className={`object-cover transition duration-700 ease-out ${slide.imageClassName} ${
+              className={`object-contain transition duration-700 ease-out ${slide.imageClassName} ${
                 index === campaignIndex ? slide.activeClassName : slide.inactiveClassName
               }`}
             />
