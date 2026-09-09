@@ -481,7 +481,7 @@ export function XeriffHome() {
             <p className="mx-auto mt-5 max-w-2xl leading-7 text-black/70 md:mx-0">Trabalhamos com um mix de marcas que muda conforme a disponibilidade da loja. Fale com a nossa equipe para confirmar quais marcas estão disponíveis no momento.</p>
             <a className="xeriff-light-button mt-8" href={whatsappLink("Olá! Gostaria de consultar quais marcas estão disponíveis atualmente na Ótica Xeriff.")} target="_blank" rel="noreferrer">Consultar marcas disponíveis</a>
           </div>
-          <div className="pointer-events-none relative mx-auto h-48 w-full max-w-[420px] md:h-64 md:max-w-none">
+          <div className="xeriff-slide-in-right pointer-events-none relative mx-auto h-48 w-full max-w-[420px] md:h-64 md:max-w-none">
             <Image
               src="/otica-xeriff/oculos-marcas-destaque.png"
               alt=""
