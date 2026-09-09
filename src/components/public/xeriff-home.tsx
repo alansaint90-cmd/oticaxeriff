@@ -447,7 +447,7 @@ export function XeriffHome() {
             <div className="relative min-h-[155px] overflow-hidden border border-[#C7983C]/45">
               <Image src="/otica-xeriff/torcida-brasileira-original.png" alt="Cliente em clima de festa usando óculos" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_28%]" />
             </div>
-            <div className="relative min-h-[155px] overflow-hidden border border-[#C7983C]/45">
+            <div className="relative col-span-2 min-h-[180px] overflow-hidden border border-[#C7983C]/45 md:col-span-1 md:min-h-[155px]">
               <Image src="/otica-xeriff/retrato-masculino-oculos.jpg" alt="Homem usando óculos em retrato editorial" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_30%]" />
             </div>
           </div>
