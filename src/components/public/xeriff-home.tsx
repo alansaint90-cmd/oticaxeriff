@@ -334,16 +334,16 @@ export function XeriffHome() {
       </section>
 
       <nav className="border-y border-[#C7983C]/20 bg-[#F7F4EE] px-4 py-4 md:px-8" aria-label="Atalhos de produtos">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-4 md:gap-8">
           {quickLinks.map(({ label, href, icon: Icon }) => (
             <a
               key={label}
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noreferrer" : undefined}
-              className="group flex min-h-14 items-center justify-center gap-3 border border-[#050505]/10 bg-white/58 px-3 text-center text-[12px] font-semibold text-[#050505] shadow-[0_12px_30px_rgba(5,5,5,.04)] transition hover:border-[#C7983C]/65 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:text-[14px]"
+              className="group flex min-h-14 items-center justify-center gap-3 px-2 text-center text-[12px] font-semibold text-[#050505] transition hover:text-[#8A611D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7983C] md:text-[14px]"
             >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#C7983C]/45 bg-[#050505] text-[#E1BF77] transition group-hover:bg-[#C7983C] group-hover:text-[#050505]">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#050505] text-[#E1BF77] transition group-hover:bg-[#C7983C] group-hover:text-[#050505]">
                 <Icon size={18} strokeWidth={1.9} aria-hidden />
               </span>
               <span>{label}</span>
