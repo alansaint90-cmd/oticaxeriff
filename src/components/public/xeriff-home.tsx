@@ -241,7 +241,7 @@ export function XeriffHome() {
       </header>
 
       <section className="xeriff-reveal bg-[#F7F4EE] pt-14 lg:pt-16" aria-label="Campanhas e promoções da Ótica Xeriff">
-        <div className="relative mx-auto h-[300px] w-full overflow-hidden bg-[#F7F4EE] sm:h-[390px] md:aspect-[1900/830] md:h-auto">
+        <div className="relative mx-auto aspect-[1920/740] w-full overflow-hidden bg-[#F7F4EE]">
           {campaignSlides.map((slide, index) => (
             <Image
               key={slide.image}
@@ -250,7 +250,7 @@ export function XeriffHome() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className={`object-contain transition duration-700 ease-out ${slide.imageClassName} ${
+              className={`object-cover transition duration-700 ease-out ${slide.imageClassName} ${
                 index === campaignIndex ? slide.activeClassName : slide.inactiveClassName
               }`}
             />
@@ -418,29 +418,33 @@ export function XeriffHome() {
         </div>
       </section>
 
-      <section id="xeriff" className="xeriff-reveal mx-auto grid max-w-6xl gap-8 px-4 py-20 md:grid-cols-[1fr_.9fr] md:items-center md:px-8">
-        <div className="max-w-[520px]">
-          <p className="xeriff-eyebrow">Estilo</p>
-          <h2 className="mt-3 font-display text-[clamp(2.05rem,3.2vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white">Um acessório que muda o <span className="xeriff-gold-gradient">olhar inteiro.</span></h2>
-          <p className="mt-5 max-w-xl text-sm leading-7 text-white/70">
-            Formato, cor e proporção mudam completamente a leitura de um rosto. Na loja você experimenta modelos diferentes com calma e percebe, no espelho, qual armação combina com a sua personalidade e a sua rotina.
-          </p>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            <span className="xeriff-chip">Formato do rosto</span>
-            <span className="xeriff-chip">Personalidade</span>
-            <span className="xeriff-chip">Conforto no uso</span>
-            <span className="xeriff-chip">Uso diário ou social</span>
+      <section id="xeriff" className="xeriff-reveal bg-[#F7F4EE] py-20 text-[#050505]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-[1fr_.9fr] md:items-center md:px-8">
+          <div className="max-w-[520px]">
+            <p className="xeriff-eyebrow">Estilo</p>
+            <h2 className="mt-3 font-display text-[clamp(2.05rem,3.2vw,3.25rem)] font-bold uppercase leading-[0.95] text-[#050505]">
+              Um acessório que muda o <span className="xeriff-gold-gradient">olhar inteiro.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-[#2A2A2A]/80">
+              Formato, cor e proporção mudam completamente a leitura de um rosto. Na loja você experimenta modelos diferentes com calma e percebe, no espelho, qual armação combina com a sua personalidade e a sua rotina.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              <span className="xeriff-chip border-[#C7983C]/45 text-[#111111]">Formato do rosto</span>
+              <span className="xeriff-chip border-[#C7983C]/45 text-[#111111]">Personalidade</span>
+              <span className="xeriff-chip border-[#C7983C]/45 text-[#111111]">Conforto no uso</span>
+              <span className="xeriff-chip border-[#C7983C]/45 text-[#111111]">Uso diário ou social</span>
+            </div>
           </div>
-        </div>
-        <div className="grid grid-cols-2 gap-3 md:h-[360px]">
-          <div className="relative min-h-[320px] overflow-hidden border border-white/12 md:row-span-2 md:min-h-0">
-            <Image src="/otica-xeriff/retrato-glamouroso-oculos-pretos.png" alt="Retrato glamouroso usando óculos pretos" fill sizes="(min-width: 768px) 28vw, 50vw" className="object-cover object-[center_34%]" />
-          </div>
-          <div className="relative min-h-[155px] overflow-hidden border border-white/12">
-            <Image src="/otica-xeriff/torcida-brasileira-original.png" alt="Cliente em clima de festa usando óculos" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_28%]" />
-          </div>
-          <div className="relative min-h-[155px] overflow-hidden border border-white/12">
-            <Image src="/otica-xeriff/retrato-masculino-oculos.jpg" alt="Homem usando óculos em retrato editorial" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_30%]" />
+          <div className="grid grid-cols-2 gap-3 md:h-[360px]">
+            <div className="relative min-h-[320px] overflow-hidden border border-[#C7983C]/45 md:row-span-2 md:min-h-0">
+              <Image src="/otica-xeriff/retrato-glamouroso-oculos-pretos.png" alt="Retrato glamouroso usando óculos pretos" fill sizes="(min-width: 768px) 28vw, 50vw" className="object-cover object-[center_34%]" />
+            </div>
+            <div className="relative min-h-[155px] overflow-hidden border border-[#C7983C]/45">
+              <Image src="/otica-xeriff/torcida-brasileira-original.png" alt="Cliente em clima de festa usando óculos" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_28%]" />
+            </div>
+            <div className="relative min-h-[155px] overflow-hidden border border-[#C7983C]/45">
+              <Image src="/otica-xeriff/retrato-masculino-oculos.jpg" alt="Homem usando óculos em retrato editorial" fill sizes="(min-width: 768px) 22vw, 50vw" className="object-cover object-[center_30%]" />
+            </div>
           </div>
         </div>
       </section>
