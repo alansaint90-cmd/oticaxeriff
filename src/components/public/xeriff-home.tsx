@@ -71,13 +71,6 @@ const campaignSlides = [
     inactiveClassName: "opacity-0"
   },
   {
-    image: "/otica-xeriff/campanha-arcada-estilo.png",
-    alt: "Campanha Ótica Xeriff: arcada com estilo e melhores marcas",
-    imageClassName: "object-center",
-    activeClassName: "opacity-100",
-    inactiveClassName: "opacity-0"
-  },
-  {
     image: "/otica-xeriff/campanha-novo-endereco.png",
     alt: "Campanha Ótica Xeriff: estamos no novo endereço no Comercial Arcada",
     imageClassName: "object-center",
